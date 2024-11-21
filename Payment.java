@@ -1,31 +1,34 @@
 import java.util.ArrayList;
 
 public class Payment {
-    Tools tools = new Tools();
-    private ArrayList<String> paymentMethods;
+    Tools tools = new Tools(); // Alat bantu untuk membuat tampilan dengan border.
+    private ArrayList<String> paymentMethods; // Daftar metode pembayaran.
 
     public Payment() {
-        paymentMethods = new ArrayList<>();
+        paymentMethods = new ArrayList<>(); // Inisialisasi daftar metode pembayaran.
         paymentMethods.add("Transfer Bank");
         paymentMethods.add("E-Wallet");
         paymentMethods.add("Credit Card");
     }
 
-    public void getPaymentMethod() {
+    public void getPaymentMethod() { // Menampilkan judul halaman.
         tools.renderPageTitle("Payment Methods", "=", 100);
         for (int i = 0; i < paymentMethods.size(); i++) {
-            System.out.println((i + 1) + ". " + paymentMethods.get(i));
+            // Menampilkan metode pembayaran satu per satu.
+            System.out.println((i + 1) + ". " + paymentMethods.get(i)); 
         }
     }
 
     public String getPayment(int paymentOption, int totalPrice) {
-        if (paymentOption >= 1 && paymentOption <= paymentMethods.size()) {
+        // Validasi pilihan pembayaran berada dalam rentang yang valid.
+        if (paymentOption >= 1 && paymentOption <= paymentMethods.size()) { 
+            // Mengambil metode pembayaran berdasarkan pilihan.
             String method = paymentMethods.get(paymentOption - 1);
             System.out.println("\nProcessing a payment of $" + totalPrice);
-            System.out.println("via " + method);
+            System.out.println("via " + method); // Menampilkan metode pembayaran.
             System.out.println("Payment successful!");
-            return method;
+            return method; // Mengembalikan metode pembayaran.
         }
-        return null;
+        return null; // Jika pilihan tidak valid, mengembalikan null.
     }    
 }

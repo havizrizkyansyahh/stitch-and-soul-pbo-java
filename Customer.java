@@ -1,28 +1,28 @@
 import java.util.ArrayList;
 public class Customer extends User{
-    Tools tools = new Tools();
-    private String homeAddress;
-    private String numberPhone;
-    private static String uniqueId = "CUST43500";
-    private static int uniqueNumber = 0;
-    private ArrayList<Order> orderHistory;
+    Tools tools = new Tools(); // Alat bantu untuk membuat tampilan.
+    private String homeAddress; // Alamat rumah pelanggan.
+    private String numberPhone; // Nomor telepon pelanggan.
+    private static String uniqueId = "CUST43500"; // Format ID unik pelanggan.
+    private static int uniqueNumber = 0; // Counter untuk ID pelanggan.
+    private ArrayList<Order> orderHistory; // Riwayat pesanan pelanggan.
     
     public Customer(String username, String password, String email, String fullname, String homeAddress, String numberPhone){
-        super(username, password, email, fullname);
-        this.userId = generateUserId();
+        super(username, password, email, fullname); // Memanggil konstruktor kelas induk.
+        this.userId = generateUserId(); // Menghasilkan ID pelanggan.
         this.homeAddress = homeAddress;
         this.numberPhone = numberPhone;
-        this.orderHistory = new ArrayList<>();  // Initialize the ArrayList in constructor
+        this.orderHistory = new ArrayList<>();  // Inisialisasi riwayat pesanan.
     }
     
     @Override // Polymorfisme
     protected String generateUserId(){
         uniqueNumber++;
-        return uniqueId + uniqueNumber;
+        return uniqueId + uniqueNumber; // Menghasilkan ID unik pelanggan.
     }
     
     @Override // Polymorfisme
-    public void getUserProfile(){
+    public void getUserProfile(){ // Menampilkan profil pelanggan.
         tools.renderPageTitle("Customer profile", "=", 100);
         System.out.println("User ID: " + userId);
         System.out.println("Fullname: " + fullname);
@@ -32,12 +32,12 @@ public class Customer extends User{
         System.out.println("Number Phone: " + numberPhone);
     }
     
-    public void addOrder(Order order){
-        orderHistory.add(order);
+    public void addOrder(Order order){ // Menambahkan pesanan ke riwayat.
+        orderHistory.add(order); 
     }
     
     public ArrayList<Order> getOrderHistory(){
-        return orderHistory;
+        return orderHistory; // Mengembalikan array orderHistory.
     }
     
     // Method getter (encapsulation)

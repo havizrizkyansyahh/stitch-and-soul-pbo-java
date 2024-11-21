@@ -1,8 +1,8 @@
 public abstract class Product {
-    protected String productId;
-    private String productName;
-    private int productPrice;
-    private int productStock;
+    protected String productId; // ID unik produk.
+    private String productName;  // Nama produk.
+    private int productPrice; // Harga produk.
+    private int productStock; // Jumlah stok produk.
     
     public Product(String productName, int productPrice, int productStock){
         this.productName = productName;
@@ -10,14 +10,14 @@ public abstract class Product {
         this.productStock = productStock;
     }
     
-    // Method getter and setter
+    // Getter dan setter untuk mengakses/memodifikasi atribut. 
     public String getProductId(){ return productId;};
     public String getProductName(){ return productName; };
     public int getProductPrice(){ return productPrice; };
     public int getProductStock(){ return productStock; };
     public void setProductStock(int productStock){ this.productStock = productStock; };
     
-    // Method abstract
-    public abstract void getProductDetail();
-    public abstract int getProductDiscount(int discount);
+    // Method abstrak untuk implementasi spesifik di subclass.
+    public abstract void getProductDetail(); 
+    public abstract int getProductDiscount(int discount); 
 }

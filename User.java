@@ -1,24 +1,29 @@
 public abstract class User{
-    protected String userId;
-    protected String username;
-    protected String password;
-    protected String email;
-    protected String fullname;
+    // Atribut untuk menyimpan informasi pengguna
+    protected String userId; // ID unik untuk pengguna
+    protected String username; // Nama pengguna
+    protected String password; // Kata sandi pengguna
+    protected String email; // Email pengguna
+    protected String fullname; // Nama lengkap pengguna
     
+    // Konstruktor untuk menginisialisasi data pengguna
     public User(String username, String password, String email, String fullname){
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.fullname = fullname;
+        this.username = username; // Inisialisasi nama pengguna
+        this.password = password; // Inisialisasi kata sandi
+        this.email = email;       // Inisialisasi email
+        this.fullname = fullname; // Inisialisasi nama lengkap
     }
     
+    // Method abstrak untuk menghasilkan ID unik pengguna
     protected abstract String generateUserId();
+    
+    // Method abstrak untuk menampilkan profil pengguna
     public abstract void getUserProfile();
     
-    // getter method (Encapsulation)
-    public String getUserId(){ return userId; };
-    public String getUsername(){ return username; };
-    public String getEmail(){ return email; };
-    public String getFullname(){ return fullname; };
-    protected String getPassword(){ return password; };
+    // Getter untuk atribut (implementasi encapsulation)
+    public String getUserId(){ return userId; } // Mengembalikan userId
+    public String getUsername(){ return username; } // Mengembalikan username
+    public String getEmail(){ return email; } // Mengembalikan email
+    public String getFullname(){ return fullname; } // Mengembalikan fullname
+    protected String getPassword(){ return password; } // Getter untuk password, hanya dapat diakses oleh subclass
 }
