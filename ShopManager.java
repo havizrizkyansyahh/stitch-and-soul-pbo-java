@@ -50,6 +50,29 @@ public class ShopManager {
     public void getCart() { // method untuk menampilan list product yang terdapat pada cart atau keranjang
         cart.showCart(); // objek cart memanggil method showCart() yang akan menampilkan list barang yang ditambahkan oleh customer jika ada
     }
+    
+    public void removeItemFromCartMenu (Scanner scanner) { // method untuk menampilkan menu jika ingin remove item pada cart
+        if(cart.getItems().size() > 0){ // blok kode di dalam if akan dijalankan jika item pada array lebih dari 0
+            System.out.println("Wanna remove item from cart ? [y/n]");
+            String tempChoice = scanner.nextLine(); // variabel untuk menyimpan pilihan yes or no
+            int removedItem; // variabel untuk menyimpan pilihan barang yang akan diremove dari cart
+
+            if(tempChoice.equalsIgnoreCase("y")){ // blok kode di dalam if akan dijalankan jika user menginput "y" atau "Y"
+                try{
+                    System.out.print("Select item you want to remove by its row number in the cart : ");
+                    removedItem = Integer.parseInt(scanner.nextLine()); // variabel menyimpan nomor baris produk yg ingin diremove
+                    
+                    // objek cart memanggil method deleteProduct 
+                    // dengan parameter berupa nomor baris produk yang ingin di remove dari cart
+                    cart.deleteProduct(removedItem); 
+                } catch(NumberFormatException e){ // menangkap error apabila user tidak menginput nomor
+                    System.out.println("Invalid input!");
+                }
+            } else {
+                System.out.println("Invalid input!");
+            }
+        }
+    }
 
     public void paymentProccess(Scanner scanner) { // method untuk memproses pembayaran  
         

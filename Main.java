@@ -120,6 +120,11 @@ public class Main{
                             
                             // objek shop memanggil method getCart() yang fungsinya untuk menampilkan list produk yang telah ditambahkan ke cart atau keranjang
                             shop.getCart(); 
+                            
+                            // objek shop memanggil method removeItemFromCartMenu untuk menampilkan menu jika ingin remove item dari cart
+                            // menerima objek scan agar bisa melakukan input di dalam method
+                            shop.removeItemFromCartMenu(scan);
+                            
                             System.out.println("\nPress Enter to return to main menu...");
                             scan.nextLine();
                             break;
@@ -129,7 +134,7 @@ public class Main{
                             
                             // objek shop memanggil method paymentProccess dengan parameter object scan dari class Scanner 
                             // agar nantinya dapat digunakan di dalam method tersebut untuk menginput jenis pembayaran
-                            shop.paymentProccess(scan); 
+                            shop.paymentProccess(scan);
                             System.out.println("\nPress Enter to return to main menu...");
                             scan.nextLine();
                             break;

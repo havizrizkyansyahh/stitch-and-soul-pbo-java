@@ -33,6 +33,7 @@ public class Cart{
     }
 
     public void deleteProduct(int index) {
+        index = index - 1;
         if (index >= 0 && index < items.size()) { // Validasi indeks produk.
             Product product = items.get(index); // Mengambil objek produk dari array items.
             items.remove(index); // Menghapus produk dari keranjang.
@@ -41,6 +42,8 @@ public class Cart{
             // Memperbarui total harga.
             totalPrice -= (product.getProductPrice() - product.getProductDiscount(discountPercentage));
             System.out.println("Product successfully removed from cart!");
+        } else{
+            System.out.println("Invalid Input!");
         }
     }
 
